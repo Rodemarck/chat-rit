@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndecController {
     @CrossOrigin(origins = "http://localhost:9000")
     @RequestMapping("/")
-    public ModelAndView index(){
-        return new ModelAndView( "index");
+    public String index(){
+        return "index";
     }
 }
