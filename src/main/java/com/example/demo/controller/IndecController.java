@@ -5,12 +5,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
+@CrossOrigin(origins = "http://domain2.com", maxAge = 3600)
 @RestController
 public class IndecController {
-    @CrossOrigin(origins = "http://localhost:9000")
     @RequestMapping("/")
-    public String index(){
-        return "index";
+    public ModelAndView index(){
+        return new ModelAndView("index");
     }
 }
