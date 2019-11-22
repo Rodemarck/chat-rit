@@ -380,11 +380,6 @@
     ];
 
     function connect(event) {
-        if(putaria){
-            alert('putaria mesmo viu... meu deus')
-        }else{
-            alert('sexo seguros')
-        }
         username = document.querySelector('#name').value.trim();
 
         if(username) {
@@ -397,7 +392,11 @@
             stompClient.connect({}, onConnected, onError);
         }
         event.preventDefault();
-
+        if(putaria){
+            alert('putaria mesmo viu... meu deus')
+        }else{
+            alert('sexo seguros')
+        }
     }
 
 
