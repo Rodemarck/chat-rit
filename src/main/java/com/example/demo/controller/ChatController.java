@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.ChatMensagem;
+import com.example.demo.model.msg.ChatMensagem;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -14,6 +14,8 @@ public class ChatController {
     public ChatMensagem register(@Payload ChatMensagem mensagem, SimpMessageHeaderAccessor accessor){
         System.out.println("new >>"+mensagem);
         accessor.getSessionAttributes().put("username",mensagem.getRemetente());
+        accessor.getSessionAttributes().put("nome","anonimo");
+        mensagem.setConteudo("chegui nessa porra!!!");
         return mensagem;
     }
 
@@ -22,6 +24,7 @@ public class ChatController {
     public ChatMensagem sendMessage(@Payload ChatMensagem mensagem, SimpMessageHeaderAccessor accessor){
         System.out.println("msg >>" + mensagem);
         System.out.println("acessor >>>" + accessor.getSessionAttributes().get("username"));
+        mensagem.setNome(accessor.getSessionAttributes().get("nome").toString());
         return mensagem;
     }
 }

@@ -1,19 +1,10 @@
-package com.example.demo.model;
+package com.example.demo.model.msg;
 
 public class ChatMensagem {
     private String conteudo;
-
-    @Override
-    public String toString() {
-        return "ChatMensagem{" +
-                "conteudo='" + conteudo + '\'' +
-                ", remetente='" + remetente + '\'' +
-                ", tipo=" + tipo +
-                '}';
-    }
-
     private String remetente;
     private TipoMensagem tipo;
+    private String nome;
 
     public TipoMensagem getTipo() {
         return tipo;
@@ -41,5 +32,22 @@ public class ChatMensagem {
 
     public void setRemetente(String remetente) {
         this.remetente = remetente;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "ChatMensagem{" +
+                "conteudo='" + conteudo + '\'' +
+                ", remetente='" + remetente + '\'' +
+                ", tipo=" + tipo +
+                '}';
     }
 }
