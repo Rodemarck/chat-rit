@@ -450,14 +450,14 @@
 
             let avatarElement = document.createElement('i');
             let avatarText = document.createTextNode(message.remetente [0]);
-            let avatarName = document.createElement('span')
+            let avatarName = document.createElement('span');
             avatarName.textContent = message.nome;
             avatarName.className = "nome";
+            avatarText.appendChild(avatarName);
             avatarElement.appendChild(avatarText);
             avatarElement.style['background-color'] = getAvatarColor(message.remetente);
-
-            messageElement.appendChild(avatarName);
             messageElement.appendChild(avatarElement);
+
             let usernameElement = document.createElement('span');
             let usernameText = document.createTextNode(message.remetente);
             usernameElement.appendChild(usernameText);
