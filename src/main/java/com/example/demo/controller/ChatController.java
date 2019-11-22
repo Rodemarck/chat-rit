@@ -15,7 +15,7 @@ public class ChatController {
         System.out.println("new >>"+mensagem);
         accessor.getSessionAttributes().put("username",mensagem.getRemetente());
         accessor.getSessionAttributes().put("nome","anonimo");
-        mensagem.setConteudo("chegui nessa porra!!!");
+        mensagem.setConteudo("Ara ra ra! acabei de entrar!!!");
         return mensagem;
     }
 

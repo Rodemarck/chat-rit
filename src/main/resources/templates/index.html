@@ -456,8 +456,8 @@
             avatarElement.appendChild(avatarText);
             avatarElement.style['background-color'] = getAvatarColor(message.remetente);
 
+            messageElement.appendChild(avatarName);
             messageElement.appendChild(avatarElement);
-            messageElement.append(avatarName);
             let usernameElement = document.createElement('span');
             let usernameText = document.createTextNode(message.remetente);
             usernameElement.appendChild(usernameText);
