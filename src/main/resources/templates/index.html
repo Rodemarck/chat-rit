@@ -422,7 +422,8 @@
             let chatMessage = {
                 remetente: username,
                 conteudo: messageInput.value,
-                tipo: 'CHAT'
+                tipo: 'CHAT',
+                nome: null
             };
 
             stompClient.send("/app/chat.send", {}, JSON.stringify(chatMessage));
@@ -449,8 +450,8 @@
 
             let avatarElement = document.createElement('i');
             let avatarText = document.createTextNode(message.remetente [0]);
-            let avatarName = document.createTextNode('span');
-            avatarName.textContent =
+            let avatarName = document.createElement('span')
+            avatarName.textContent = message.nome;
             avatarName.className = "nome";
             avatarElement.appendChild(avatarText);
             avatarElement.style['background-color'] = getAvatarColor(message.remetente);
