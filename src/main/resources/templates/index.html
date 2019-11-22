@@ -301,6 +301,11 @@
             }
         }
 
+        .nome{
+            font-size: 5px;
+            font-family: "Comic Sans MS";
+        }
+
     </style>
 </head>
 <body
@@ -445,7 +450,7 @@
             let avatarElement = document.createElement('i');
             let avatarText = document.createTextNode(message.remetente [0]);
             let avatarName = document.createTextNode(message.nome);
-            avatarName.style['font'] = "italic bold 5px arial,serif";
+            avatarName.classList.add("nome");
             avatarElement.appendChild(avatarText);
             avatarElement.style['background-color'] = getAvatarColor(message.remetente);
 
