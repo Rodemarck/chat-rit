@@ -301,6 +301,12 @@
             }
         }
 
+        .nome{
+            font-size: 10px;
+            font-family: "Comic Sans MS";
+            color: red;
+        }
+
     </style>
 </head>
 <body
@@ -376,7 +382,7 @@
             usernamePage.classList.add('hidden');
             chatPage.classList.remove('hidden');
 
-            var socket = new SockJS('/chat');
+            let socket = new SockJS('/chat');
             stompClient = Stomp.over(socket);
 
             stompClient.connect({}, onConnected, onError);
@@ -411,13 +417,14 @@
 
 
     function send(event) {
-        var messageContent = messageInput.value.trim();
+        let messageContent = messageInput.value.trim();
 
         if(messageContent && stompClient) {
-            var chatMessage = {
+            let chatMessage = {
                 remetente: username,
                 conteudo: messageInput.value,
-                tipo: 'CHAT'
+                tipo: 'CHAT',
+                nome: null
             };
 
             stompClient.send("/app/chat.send", {}, JSON.stringify(chatMessage));
@@ -429,9 +436,9 @@
 
     function onMessageReceived(payload) {
         console.log("cehgou msg")
-        var message = JSON.parse(payload.body);
+        let message = JSON.parse(payload.body);
 
-        var messageElement = document.createElement('li');
+        let messageElement = document.createElement('li');
 
         if(message.type === 'ENTRADA') {
             messageElement.classList.add('event-message');
@@ -442,21 +449,30 @@
         } else {
             messageElement.classList.add('chat-message');
 
-            var avatarElement = document.createElement('i');
-            var avatarText = document.createTextNode(message.remetente [0]);
+            let avatarElement = document.createElement('i');
+            let avatarText = document.createTextNode(message.remetente [0]);
+            let avatarName = document.createElement('span');
+            avatarName.className= "nome";
+            avatarName.textContent = message.nome;
             avatarElement.appendChild(avatarText);
             avatarElement.style['background-color'] = getAvatarColor(message.remetente);
 
             messageElement.appendChild(avatarElement);
 
-            var usernameElement = document.createElement('span');
-            var usernameText = document.createTextNode(message.remetente);
+            let usernameElement = document.createElement('span');
+            let usernameText = document.createTextNode(message.remetente);
             usernameElement.appendChild(usernameText);
+            usernameElement.appendChild(avatarName);
             messageElement.appendChild(usernameElement);
+            if(message.nome !== "anonimo"){
+                avatarName.onclick = function() {
+                    window.location.href = "google.com";
+                }
+            }
         }
 
-        var textElement = document.createElement('p');
-        var messageText = document.createTextNode(message.conteudo);
+        let textElement = document.createElement('p');
+        let messageText = document.createTextNode(message.conteudo);
         textElement.appendChild(messageText);
 
         messageElement.appendChild(textElement);
@@ -467,12 +483,12 @@
 
 
     function getAvatarColor(messageSender) {
-        var hash = 0;
-        for (var i = 0; i < messageSender.length; i++) {
+        let hash = 0;
+        for (let i = 0; i < messageSender.length; i++) {
             hash = 31 * hash + messageSender.charCodeAt(i);
         }
 
-        var index = Math.abs(hash % colors.length);
+        let index = Math.abs(hash % colors.length);
         return colors[index];
     }
 
