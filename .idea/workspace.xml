@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc6bbf60-5777-4ad3-b171-549dd1dd5529" name="Default Changelist" comment="iniciando o mongo" />
+    <list default="true" id="fc6bbf60-5777-4ad3-b171-549dd1dd5529" name="Default Changelist" comment="iniciando o mongo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/IndecController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/IndecController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +101,8 @@
       <workItem from="1574377311146" duration="2368000" />
       <workItem from="1574425226851" duration="1155000" />
       <workItem from="1574445494117" duration="7689000" />
-      <workItem from="1574460158333" duration="3952000" />
+      <workItem from="1574460158333" duration="7916000" />
+      <workItem from="1574479854331" duration="366000" />
     </task>
     <servers />
   </component>

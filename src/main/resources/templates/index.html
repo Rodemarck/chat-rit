@@ -464,6 +464,11 @@
             usernameElement.appendChild(usernameText);
             usernameElement.appendChild(avatarName);
             messageElement.appendChild(usernameElement);
+            if(message.nome !== "anonimo"){
+                avatarName.onclick = function() {
+                    window.location.href = "google.com";
+                }
+            }
         }
 
         let textElement = document.createElement('p');
